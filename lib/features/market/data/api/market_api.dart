@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:crypto_app/core/constant/market_feat/market_feature.dart';
 import 'package:crypto_app/core/network/api_result.dart';
@@ -26,6 +27,8 @@ class MarketApi {
       } else {
         return ApiError<List<MarketDto>>("error from parsing");
       }
+    } on SocketException {
+      return ApiError<List<MarketDto>>("No internet connection");
     } catch (e) {
       return ApiError<List<MarketDto>>(e.toString());
     }

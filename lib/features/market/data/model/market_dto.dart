@@ -1,3 +1,5 @@
+import 'package:crypto_app/features/market/domain/entity/market_entity.dart';
+
 class MarketDto {
   String? id;
   String? symbol;
@@ -79,5 +81,15 @@ class MarketDto {
     atlChangePercentage = json['atl_change_percentage'];
     atlDate = json['atl_date'];
     lastUpdated = json['last_updated'];
+  }
+
+  MarketEntity toEntity() {
+    return MarketEntity(
+      currentPrice: currentPrice ?? 0,
+      id: id ?? '',
+      image: image ?? '',
+      priceChangePercentage24h: priceChangePercentage24h ?? 0.0,
+      symbol: symbol ?? '',
+    );
   }
 }
