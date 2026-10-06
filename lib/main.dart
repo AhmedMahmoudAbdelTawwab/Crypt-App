@@ -1,6 +1,8 @@
+import 'package:crypto_app/core/routes/app_route.dart';
+import 'package:crypto_app/features/market/presntation/view/screens/market.dart';
 import 'package:flutter/material.dart';
 
-void mai() {
+void main() {
   runApp(CryptoApp());
 }
 
@@ -9,6 +11,9 @@ class CryptoApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      routes: {AppRoute.marketScreenRouteName: (context) => MarketScreen()},
+      home: MarketScreen(),
+    );
   }
 }

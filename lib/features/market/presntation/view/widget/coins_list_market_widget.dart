@@ -14,8 +14,8 @@ class CoinsListMarketWidget extends StatelessWidget {
   String coinImage;
   String coinName;
   String coinSymbol;
-  double coinPrice;
-  double coinChange;
+  num coinPrice;
+  num coinChange;
 
   Color colorchange() {
     if (coinChange > 0) {
@@ -29,31 +29,27 @@ class CoinsListMarketWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListTile(
-        leading: CircleAvatar(
-          child: Image.network(coinImage, fit: BoxFit.cover),
-        ),
-        title: Text(
-          coinName,
-          style: TextStyle(fontSize: 14, color: AppColors.primaryTextColor),
-        ),
-        subtitle: Text(
-          coinSymbol,
-          style: TextStyle(fontSize: 10, color: AppColors.secoundryTextColor),
-        ),
-        trailing: Column(
-          children: [
-            Text(
-              coinPrice.toString(),
-              style: TextStyle(fontSize: 14, color: AppColors.primaryTextColor),
-            ),
-            Text(
-              coinChange.toString(),
-              style: TextStyle(fontSize: 10, color: colorchange()),
-            ),
-          ],
-        ),
+    return ListTile(
+      leading: CircleAvatar(child: Image.network(coinImage, fit: BoxFit.cover)),
+      title: Text(
+        coinName,
+        style: TextStyle(fontSize: 14, color: AppColors.primaryTextColor),
+      ),
+      subtitle: Text(
+        coinSymbol,
+        style: TextStyle(fontSize: 10, color: AppColors.secoundryTextColor),
+      ),
+      trailing: Column(
+        children: [
+          Text(
+            "$coinPrice",
+            style: TextStyle(fontSize: 14, color: AppColors.primaryTextColor),
+          ),
+          Text(
+            "$coinChange",
+            style: TextStyle(fontSize: 10, color: colorchange()),
+          ),
+        ],
       ),
     );
   }

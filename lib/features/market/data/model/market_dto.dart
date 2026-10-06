@@ -8,24 +8,24 @@ class MarketDto {
   String? lastUpdated;
   String? athDate;
   String? atlDate;
-  int? circulatingSupply;
-  int? totalSupply;
-  int? maxSupply;
-  int? ath;
-  int? currentPrice;
-  int? marketCap;
-  int? marketCapRank;
-  int? fullyDilutedValuation;
-  int? totalVolume;
-  int? high24h;
-  int? low24h;
-  int? marketCapChange24h;
-  double? priceChange24h;
-  double? priceChangePercentage24h;
-  double? marketCapChangePercentage24h;
-  double? athChangePercentage;
-  double? atl;
-  double? atlChangePercentage;
+  num? circulatingSupply;
+  num? totalSupply;
+  num? maxSupply;
+  num? ath;
+  num? currentPrice;
+  num? marketCap;
+  num? marketCapRank;
+  num? fullyDilutedValuation;
+  num? totalVolume;
+  num? high24h;
+  num? low24h;
+  num? marketCapChange24h;
+  num? priceChange24h;
+  num? priceChangePercentage24h;
+  num? marketCapChangePercentage24h;
+  num? athChangePercentage;
+  num? atl;
+  num? atlChangePercentage;
 
   MarketDto({
     this.id,
@@ -58,9 +58,9 @@ class MarketDto {
   MarketDto.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     symbol = json['symbol'];
-    name = json['name'];
+    name = (json['name']);
     image = json['image'];
-    currentPrice = json['current_price'];
+    currentPrice = (json['current_price'] as num);
     marketCap = json['market_cap'];
     marketCapRank = json['market_cap_rank'];
     fullyDilutedValuation = json['fully_diluted_valuation'];
@@ -85,7 +85,7 @@ class MarketDto {
 
   MarketEntity toEntity() {
     return MarketEntity(
-      currentPrice: currentPrice ?? 0,
+      currentPrice: currentPrice ?? 0.0,
       id: id ?? '',
       image: image ?? '',
       priceChangePercentage24h: priceChangePercentage24h ?? 0.0,

@@ -30,7 +30,7 @@ class MarketApi {
     } on SocketException {
       return ApiError<List<MarketDto>>("No internet connection");
     } catch (e) {
-      return ApiError<List<MarketDto>>(e.toString());
+      return ApiError<List<MarketDto>>("error at ${e.toString()} ");
     }
   }
 }
