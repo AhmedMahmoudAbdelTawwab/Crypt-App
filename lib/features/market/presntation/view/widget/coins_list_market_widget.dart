@@ -32,22 +32,24 @@ class CoinsListMarketWidget extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(child: Image.network(coinImage, fit: BoxFit.cover)),
       title: Text(
-        coinName,
-        style: TextStyle(fontSize: 14, color: AppColors.primaryTextColor),
+        coinName.toUpperCase(),
+        style: TextStyle(fontSize: 18, color: AppColors.primaryTextColor),
       ),
       subtitle: Text(
-        coinSymbol,
-        style: TextStyle(fontSize: 10, color: AppColors.secoundryTextColor),
+        coinSymbol.toUpperCase(),
+        style: TextStyle(fontSize: 14, color: AppColors.secoundryTextColor),
       ),
       trailing: Column(
+        crossAxisAlignment: .end,
+        mainAxisAlignment: .spaceEvenly,
         children: [
           Text(
             "$coinPrice",
-            style: TextStyle(fontSize: 14, color: AppColors.primaryTextColor),
+            style: TextStyle(fontSize: 18, color: AppColors.primaryTextColor),
           ),
           Text(
             "$coinChange",
-            style: TextStyle(fontSize: 10, color: colorchange()),
+            style: TextStyle(fontSize: 16, color: colorchange()),
           ),
         ],
       ),

@@ -57,7 +57,7 @@ class _MarketScreenState extends State<MarketScreen> {
                       );
                     },
                     separatorBuilder: (BuildContext, int index) {
-                      return Divider();
+                      return Divider(height: 5, color: AppColors.cardBorder);
                     },
                     itemCount: state.marketData.length,
                   );
